@@ -11,7 +11,7 @@ access_token = environ["ACCESS_TOKEN"]
 access_token_secret = environ["ACCESS_TOKEN_SECRET"]
 
 def get_quotes():
-    with open ("C:\\Users\\tuxbu\\words\\data.json") as f:
+    with open ("C:\\Users\\tuxbu\\AppData\\Local\\Programs\\Python\\Python38-32\\rsbot\\data.json") as f:
         quotes_json = json.load(f)
     return quotes_json["quotes"]
 
