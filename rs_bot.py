@@ -1,27 +1,32 @@
 import json
 import random
-import tweepy
-import credentials
+import time
 import sys
+import tweepy
 from os import environ
-def get_quotes():
-    with open ("C:\\Users\\tuxbu\\words\\data.json") as f:
-        quotes_json = json.load(f)
-    return quotes_json["quotes"]
+
 consumer_key = environ["API_KEY"]
 consumer_secret_key = environ["API_SECRET_KEY"]
 access_token = environ["ACCESS_TOKEN"]
 access_token_secret = environ["ACCESS_TOKEN_SECRET"]
+
+def get_quotes():
+    with open ("C:\\Users\\tuxbu\\words\\data.json") as f:
+        quotes_json = json.load(f)
+    return quotes_json["quotes"]
+
 def get_random_quote():
     quotes = get_quotes()
     random_quote = random.choice(quotes)
     return random_quote
+
 def create_tweet():
     quote = get_random_quote()
     tweet = """
             {}
             """.format(quote["quote"])
     return tweet
+
 def tweet_quote():
     interval = 60 * 60 * 4
 
